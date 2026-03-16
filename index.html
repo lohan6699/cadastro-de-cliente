@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Seu Site</title>
+  <title>Login | Meu Sistema</title>
   
   <style>
     * {
@@ -13,8 +13,8 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -22,85 +22,68 @@
       padding: 20px;
     }
 
-    .login-container {
+    .login-box {
       background: white;
       width: 100%;
-      max-width: 420px;
+      max-width: 400px;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     }
 
-    .login-header {
-      background: #4f46e5;
+    .header {
+      background: #1d4ed8;
       color: white;
-      padding: 30px 40px;
+      padding: 32px 24px;
       text-align: center;
     }
 
-    .login-header h1 {
-      font-size: 28px;
+    .header h1 {
+      font-size: 26px;
       margin-bottom: 8px;
     }
 
-    .login-header p {
+    .header p {
       opacity: 0.9;
       font-size: 15px;
     }
 
-    .form-container {
-      padding: 40px 35px 30px;
+    .form {
+      padding: 32px 28px 36px;
     }
 
-    .form-group {
-      margin-bottom: 24px;
-      position: relative;
+    .input-group {
+      margin-bottom: 20px;
     }
 
-    .form-group label {
+    .input-group label {
       display: block;
       margin-bottom: 8px;
-      color: #4b5563;
-      font-weight: 500;
+      color: #374151;
       font-size: 14px;
+      font-weight: 500;
     }
 
-    .form-group input {
+    .input-group input {
       width: 100%;
       padding: 14px 16px;
-      border: 2px solid #d1d5db;
-      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
       font-size: 16px;
-      transition: all 0.25s;
+      transition: 0.2s;
     }
 
-    .form-group input:focus {
+    .input-group input:focus {
       outline: none;
-      border-color: #6366f1;
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
-    }
-
-    .password-wrapper {
-      position: relative;
-    }
-
-    .password-toggle {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-12%);
-      background: none;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      color: #6b7280;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
     }
 
     .options {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 20px 0 28px;
+      margin: 16px 0 24px;
       font-size: 14px;
     }
 
@@ -114,11 +97,11 @@
     .remember input {
       width: 16px;
       height: 16px;
-      accent-color: #6366f1;
+      accent-color: #3b82f6;
     }
 
     .forgot a {
-      color: #6366f1;
+      color: #3b82f6;
       text-decoration: none;
       font-weight: 500;
     }
@@ -127,111 +110,94 @@
       text-decoration: underline;
     }
 
-    .btn-login {
+    button {
       width: 100%;
-      padding: 16px;
-      background: #6366f1;
+      padding: 14px;
+      background: #2563eb;
       color: white;
       border: none;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: 0.25s;
     }
 
-    .btn-login:hover {
-      background: #4f46e5;
-      transform: translateY(-2px);
+    button:hover {
+      background: #1d4ed8;
     }
 
-    .btn-login:active {
-      transform: translateY(0);
+    button:active {
+      transform: translateY(1px);
     }
 
-    .signup-link {
+    .signup {
       text-align: center;
       margin-top: 24px;
       color: #6b7280;
       font-size: 15px;
     }
 
-    .signup-link a {
-      color: #6366f1;
+    .signup a {
+      color: #3b82f6;
       text-decoration: none;
       font-weight: 600;
     }
 
-    .signup-link a:hover {
+    .signup a:hover {
       text-decoration: underline;
     }
 
     @media (max-width: 480px) {
-      .form-container {
-        padding: 30px 25px 25px;
+      .form {
+        padding: 24px 20px 28px;
+      }
+      .header {
+        padding: 28px 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="login-container">
+  <div class="login-box">
     
-    <div class="login-header">
-      <h1>Bem-vindo de volta!</h1>
-      <p>Faça login para continuar</p>
+    <div class="header">
+      <h1>Entrar</h1>
+      <p>Use sua conta para continuar</p>
     </div>
 
-    <div class="form-container">
-      <form>
-
-        <div class="form-group">
-          <label for="email">E-mail ou usuário</label>
-          <input type="text" id="email" placeholder="seuemail@exemplo.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="password">Senha</label>
-          <div class="password-wrapper">
-            <input type="password" id="password" placeholder="••••••••" required>
-            <button type="button" class="password-toggle">👁️</button>
-          </div>
-        </div>
-
-        <div class="options">
-          <label class="remember">
-            <input type="checkbox" id="remember">
-            Lembrar de mim
-          </label>
-          <span class="forgot">
-            <a href="#">Esqueceu a senha?</a>
-          </span>
-        </div>
-
-        <button type="submit" class="btn-login">Entrar</button>
-
-      </form>
-
-      <div class="signup-link">
-        Ainda não tem conta? <a href="#">Criar conta</a>
+    <form class="form">
+      
+      <div class="input-group">
+        <label for="usuario">Usuário ou e-mail</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário ou e-mail" required autofocus>
       </div>
+
+      <div class="input-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="••••••••" required>
+      </div>
+
+      <div class="options">
+        <label class="remember">
+          <input type="checkbox" id="lembrar">
+          Manter conectado
+        </label>
+        <span class="forgot">
+          <a href="#">Esqueceu a senha?</a>
+        </span>
+      </div>
+
+      <button type="submit">Entrar</button>
+
+    </form>
+
+    <div class="signup">
+      Não tem conta ainda? <a href="#">Criar conta</a>
     </div>
 
   </div>
-
-  <!-- JavaScript simples só pro olho da senha -->
-  <script>
-    const toggleBtn = document.querySelector('.password-toggle');
-    const passwordInput = document.querySelector('#password');
-
-    toggleBtn.addEventListener('click', () => {
-      const type = passwordInput.type === 'password' ? 'text' : 'password';
-      passwordInput.type = type;
-      
-      // Muda o emoji (opcional)
-      toggleBtn.textContent = type === 'password' ? '👁️' : '🙈';
-    });
-  </script>
 
 </body>
 </html>
