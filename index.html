@@ -13,175 +13,196 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #1e40af 0%, #312e81 100%);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       padding: 20px;
     }
 
-    .login-box {
+    .login-container {
       background: white;
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 20px 50px -12px rgba(0,0,0,0.35);
     }
 
     .header {
-      background: #1d4ed8;
+      background: linear-gradient(to right, #1d4ed8, #3b82f6);
       color: white;
-      padding: 32px 24px;
+      padding: 2.5rem 1.8rem;
       text-align: center;
     }
 
     .header h1 {
-      font-size: 26px;
-      margin-bottom: 8px;
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
     .header p {
       opacity: 0.9;
-      font-size: 15px;
+      font-size: 0.95rem;
     }
 
     .form {
-      padding: 32px 28px 36px;
+      padding: 2.2rem 1.8rem 2.5rem;
     }
 
     .input-group {
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+      position: relative;
     }
 
     .input-group label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 0.5rem;
       color: #374151;
-      font-size: 14px;
+      font-size: 0.9rem;
       font-weight: 500;
     }
 
     .input-group input {
       width: 100%;
-      padding: 14px 16px;
+      padding: 0.9rem 1rem;
       border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: 0.2s;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: all 0.2s ease;
     }
 
     .input-group input:focus {
       outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
     }
 
     .options {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 16px 0 24px;
-      font-size: 14px;
+      margin: 1.2rem 0 1.8rem;
+      font-size: 0.9rem;
     }
 
     .remember {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
       color: #4b5563;
+      user-select: none;
     }
 
     .remember input {
-      width: 16px;
-      height: 16px;
-      accent-color: #3b82f6;
+      width: 1.1rem;
+      height: 1.1rem;
+      accent-color: #2563eb;
+      cursor: pointer;
     }
 
     .forgot a {
-      color: #3b82f6;
+      color: #2563eb;
       text-decoration: none;
       font-weight: 500;
     }
 
     .forgot a:hover {
       text-decoration: underline;
+      color: #1d4ed8;
     }
 
-    button {
+    .btn-login {
       width: 100%;
-      padding: 14px;
+      padding: 0.95rem;
       background: #2563eb;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      border-radius: 10px;
+      font-size: 1.05rem;
       font-weight: 600;
       cursor: pointer;
-      transition: 0.25s;
+      transition: all 0.25s ease;
     }
 
-    button:hover {
+    .btn-login:hover {
       background: #1d4ed8;
+      transform: translateY(-1px);
     }
 
-    button:active {
-      transform: translateY(1px);
+    .btn-login:active {
+      transform: translateY(0);
     }
 
-    .signup {
+    .signup-link {
       text-align: center;
-      margin-top: 24px;
+      margin-top: 1.8rem;
       color: #6b7280;
-      font-size: 15px;
+      font-size: 0.95rem;
     }
 
-    .signup a {
-      color: #3b82f6;
+    .signup-link a {
+      color: #2563eb;
       text-decoration: none;
       font-weight: 600;
     }
 
-    .signup a:hover {
+    .signup-link a:hover {
       text-decoration: underline;
     }
 
     @media (max-width: 480px) {
-      .form {
-        padding: 24px 20px 28px;
+      .login-container {
+        max-width: 100%;
       }
-      .header {
-        padding: 28px 20px;
+      .form, .header {
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="login-box">
+  <div class="login-container">
     
     <div class="header">
-      <h1>Entrar</h1>
-      <p>Use sua conta para continuar</p>
+      <h1>Bem-vindo de volta</h1>
+      <p>Faça login para continuar no sistema</p>
     </div>
 
-    <form class="form">
+    <form class="form" id="loginForm">
       
       <div class="input-group">
         <label for="usuario">Usuário ou e-mail</label>
-        <input type="text" id="usuario" placeholder="Digite seu usuário ou e-mail" required autofocus>
+        <input 
+          type="text" 
+          id="usuario" 
+          name="usuario"
+          placeholder="seu.nome@exemplo.com" 
+          required 
+          autofocus
+          autocomplete="username email"
+        >
       </div>
 
       <div class="input-group">
         <label for="senha">Senha</label>
-        <input type="password" id="senha" placeholder="••••••••" required>
+        <input 
+          type="password" 
+          id="senha" 
+          name="senha"
+          placeholder="••••••••" 
+          required
+          autocomplete="current-password"
+        >
       </div>
 
       <div class="options">
         <label class="remember">
-          <input type="checkbox" id="lembrar">
+          <input type="checkbox" id="lembrar" name="lembrar">
           Manter conectado
         </label>
         <span class="forgot">
@@ -189,15 +210,29 @@
         </span>
       </div>
 
-      <button type="submit">Entrar</button>
+      <button type="submit" class="btn-login">Entrar</button>
 
     </form>
 
-    <div class="signup">
-      Não tem conta ainda? <a href="#">Criar conta</a>
+    <div class="signup-link">
+      Ainda não tem conta? <a href="#">Criar conta gratuita</a>
     </div>
 
   </div>
 
+  <!-- JavaScript opcional - só para demonstração -->
+  <script>
+    // Impede envio real do formulário (apenas exemplo)
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const usuario = document.getElementById('usuario').value;
+      const senha = document.getElementById('senha').value;
+      
+      if (usuario && senha) {
+        alert('Login simulado com sucesso!\n\nUsuário: ' + usuario);
+      }
+    });
+  </script>
+
 </body>
-</html>
+</html>>
