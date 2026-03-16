@@ -13,70 +13,124 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(-45deg, #6e48aa, #9d50bb, #4764e6, #5e72e4);
+      background-size: 300% 300%;
+      animation: gradientBG 12s ease infinite;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .login-container {
-      background: white;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
       width: 100%;
-      max-width: 420px;
-      border-radius: 16px;
+      max-width: 440px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255,255,255,0.18);
+      transform: translateY(40px);
+      opacity: 0;
+      animation: popup 0.9s cubic-bezier(0.23, 1, 0.32, 1) 0.4s forwards;
+    }
+
+    @keyframes popup {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .login-header {
-      background: #4f46e5;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      padding: 2.5rem 2rem;
+      padding: 3rem 2.5rem 2.8rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25) 0%, transparent 60%);
+      animation: shine 10s infinite linear;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(360deg); }
     }
 
     .login-header h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.1rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .login-header p {
-      opacity: 0.9;
-      font-size: 0.95rem;
+      opacity: 0.92;
+      font-size: 1rem;
     }
 
     .form-container {
-      padding: 2.5rem 2.5rem 2rem;
+      padding: 3rem 3rem 2.5rem;
     }
 
     .form-group {
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.8rem;
+      position: relative;
     }
 
     .form-group label {
-      display: block;
-      margin-bottom: 0.6rem;
-      color: #4b5563;
-      font-weight: 500;
-      font-size: 0.95rem;
+      position: absolute;
+      top: 1rem;
+      left: 1.2rem;
+      color: #6b7280;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .form-control {
       width: 100%;
-      padding: 0.95rem 1.1rem;
+      padding: 1.35rem 1.2rem 0.6rem;
       border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.2s;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      background: rgba(249, 250, 251, 0.6);
+      transition: all 0.3s ease;
     }
 
-    .form-control:focus {
-      outline: none;
+    .form-control:focus,
+    .form-control:not(:placeholder-shown) {
       border-color: #6366f1;
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.18);
+    }
+
+    .form-control:focus + label,
+    .form-control:not(:placeholder-shown) + label {
+      top: 0.4rem;
+      font-size: 0.82rem;
+      color: #6366f1;
+      font-weight: 600;
     }
 
     .password-group {
@@ -85,94 +139,43 @@
 
     .password-toggle {
       position: absolute;
-      right: 14px;
+      right: 1.2rem;
       top: 50%;
-      transform: translateY(-12%);
+      transform: translateY(-50%);
       background: none;
       border: none;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       cursor: pointer;
       color: #6b7280;
+      transition: color 0.3s;
+    }
+
+    .password-toggle:hover {
+      color: #4f46e5;
     }
 
     .options {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin: 1.4rem 0 2rem;
-      font-size: 0.9rem;
+      margin: 1.8rem 0 2.4rem;
+      font-size: 0.95rem;
     }
 
     .remember label {
       color: #4b5563;
+      cursor: pointer;
       user-select: none;
+      transition: color 0.3s;
+    }
+
+    input[type="checkbox"]:checked + label {
+      color: #4f46e5;
     }
 
     .forgot a {
       color: #6366f1;
       text-decoration: none;
+      transition: all 0.3s;
     }
 
-    .forgot a:hover {
-      text-decoration: underline;
-    }
-
-    .btn-login {
-      width: 100%;
-      padding: 1rem;
-      background: #4f46e5;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-
-    .btn-login:hover {
-      background: #4338ca;
-      transform: translateY(-2px);
-    }
-
-    .signup-link {
-      text-align: center;
-      margin-top: 1.8rem;
-      color: #6b7280;
-      font-size: 0.95rem;
-    }
-
-    .signup-link a {
-      color: #4f46e5;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .signup-link a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 480px) {
-      .form-container {
-        padding: 2rem 1.6rem 1.6rem;
-      }
-      
-      .login-header {
-        padding: 2rem 1.5rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="login-container">
-    <div class="login-header">
-      <h1>Bem-vindo</h1>
-      <p>Faça login para continuar</p>
-    </div>
-
-    <div class="form-container">
-      <form>
-
-        <div class="form-group">
-          <label for="email">E-mail</label
+    .l
