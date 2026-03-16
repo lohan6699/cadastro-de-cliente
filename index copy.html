@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Meu Sistema</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: white;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+
+    .header {
+      background: #1d4ed8;
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      opacity: 0.9;
+      font-size: 15px;
+    }
+
+    .form {
+      padding: 32px 28px 36px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #374151;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0 24px;
+      font-size: 14px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #4b5563;
+    }
+
+    .remember input {
+      width: 16px;
+      height: 16px;
+      accent-color: #3b82f6;
+    }
+
+    .forgot a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .forgot a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 24px;
+      color: #6b7280;
+      font-size: 15px;
+    }
+
+    .signup a {
+      color: #3b82f6;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .signup a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .form {
+        padding: 24px 20px 28px;
+      }
+      .header {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    
+    <div class="header">
+      <h1>Entrar</h1>
+      <p>Use sua conta para continuar</p>
+    </div>
+
+    <form class="form">
+      
+      <div class="input-group">
+        <label for="usuario">Usuário ou e-mail</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário ou e-mail" required autofocus>
+      </div>
+
+      <div class="input-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="••••••••" required>
+      </div>
+
+      <div class="options">
+        <label class="remember">
+          <input type="checkbox" id="lembrar">
+          Manter conectado
+        </label>
+        <span class="forgot">
+          <a href="#">Esqueceu a senha?</a>
+        </span>
+      </div>
+
+      <button type="submit">Entrar</button>
+
+    </form>
+
+    <div class="signup">
+      Não tem conta ainda? <a href="#">Criar conta</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
